@@ -423,3 +423,8 @@ MiniForge/
 ## 11. License
 
 This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+
+---
+
+**Author:** Jatin Poripireddi  
+**Focus:** Compiler Design, C++ Systems Programming, Intermediate Representations, and Virtual Machines
