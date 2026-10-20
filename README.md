@@ -1,6 +1,6 @@
 # MiniForge: A C++ Mini Compiler and Optimization Toolkit
 
-[![CI](https://github.com/placeholder/miniforge/actions/workflows/ci.yml/badge.svg)](https://github.com/placeholder/miniforge/actions/workflows/ci.yml)
+[![CI](https://github.com/JATIN17082005/MiniForge/actions/workflows/ci.yml/badge.svg)](https://github.com/JATIN17082005/MiniForge/actions/workflows/ci.yml)
 [![Language](https://img.shields.io/badge/C%2B%2B-17-blue.svg)](https://en.wikipedia.org/wiki/C%2B%2B17)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
