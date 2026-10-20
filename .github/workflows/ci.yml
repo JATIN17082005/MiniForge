@@ -1,0 +1,45 @@
+name: MiniForge CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-test:
+    name: Build & Test (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up CMake
+        uses: jwlawson/actions-setup-cmake@v2
+        with:
+          cmake-version: '3.28.x'
+
+      - name: Configure CMake
+        run: cmake -B build -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build Project
+        run: cmake --build build --config Release --parallel
+
+      - name: Run Test Suite
+        run: ctest --test-dir build --output-on-failure -C Release
+
+      - name: Run MiniForge CLI Smoke Test (basic.mf)
+        shell: bash
+        run: |
+          if [ -f "./build/miniforge" ]; then
+            ./build/miniforge run examples/basic.mf
+          elif [ -f "./build/Release/miniforge.exe" ]; then
+            ./build/Release/miniforge.exe run examples/basic.mf
+          elif [ -f "./build/miniforge.exe" ]; then
+            ./build/miniforge.exe run examples/basic.mf
+          fi

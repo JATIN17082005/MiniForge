@@ -1,0 +1,10 @@
+// Loop example: Sum of integers from 1 to 10
+let sum = 0;
+let i = 1;
+
+while (i <= 10) {
+    sum = sum + i;
+    i = i + 1;
+}
+
+print(sum); // Expected output: 55

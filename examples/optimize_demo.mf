@@ -1,0 +1,7 @@
+// Optimization demonstration:
+// Demonstrates Constant Propagation, Constant Folding, and Dead Temporary Elimination
+let a = 10;
+let b = 20;
+let c = a * 2 + b / 4;
+let unused = c * 100;
+print(c);

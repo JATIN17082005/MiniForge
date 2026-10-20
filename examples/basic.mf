@@ -1,0 +1,10 @@
+// Basic example demonstrating variables, arithmetic precedence, and conditionals
+let x = 4;
+let y = 3;
+let result = x + y * 2;
+
+if (result > 8) {
+    print(result);
+} else {
+    print(0);
+}
