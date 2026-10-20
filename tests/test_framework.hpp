@@ -7,6 +7,8 @@
 #include <functional>
 #include <sstream>
 #include <cstdlib>
+#include <cstddef>
+#include <cstdint>
 
 namespace miniforge::test {
 
@@ -127,3 +129,4 @@ struct TestRegistrar {
 } // namespace miniforge::test
 
 #endif // MINIFORGE_TESTS_TEST_FRAMEWORK_HPP
+

@@ -3,6 +3,8 @@
 
 #include <string>
 #include <sstream>
+#include <cstddef>
+#include <cstdint>
 
 namespace miniforge {
 

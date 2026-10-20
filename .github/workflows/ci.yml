@@ -19,12 +19,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up CMake
-        uses: jwlawson/actions-setup-cmake@v2
-        with:
-          cmake-version: '3.28.x'
+      - name: Configure CMake (Windows)
+        if: runner.os == 'Windows'
+        run: cmake -B build -A x64
 
-      - name: Configure CMake
+      - name: Configure CMake (Linux)
+        if: runner.os == 'Linux'
         run: cmake -B build -DCMAKE_BUILD_TYPE=Release
 
       - name: Build Project
@@ -36,10 +36,10 @@ jobs:
       - name: Run MiniForge CLI Smoke Test (basic.mf)
         shell: bash
         run: |
-          if [ -f "./build/miniforge" ]; then
-            ./build/miniforge run examples/basic.mf
-          elif [ -f "./build/Release/miniforge.exe" ]; then
+          if [ -f "./build/Release/miniforge.exe" ]; then
             ./build/Release/miniforge.exe run examples/basic.mf
           elif [ -f "./build/miniforge.exe" ]; then
             ./build/miniforge.exe run examples/basic.mf
+          elif [ -f "./build/miniforge" ]; then
+            ./build/miniforge run examples/basic.mf
           fi
